@@ -63,3 +63,6 @@ This theme, like WordPress, is licensed under the GPL.
 .hexa-widget ul li a:hover {
 	color: #5cca8d;
 }
+.icon-list ul li {
+    display: inline;
+}

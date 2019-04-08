@@ -11,8 +11,6 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <!-- Title -->
-    <!-- favicon Icon -->
-    <link rel="icon" href="/assets/img/favicon.png" type="image/x-icon"/>
 
     <?php wp_head(); ?>
 </head>
@@ -28,6 +26,14 @@
     <div class="header-top">
       <div class="container h-100">
         <div class="row justify-content-between align-items-center h-100">
+        <div class="rdux">
+          <p style="color: red">
+            <?php
+              global $hexa;
+              echo esc_html__($hexa['phone'], 'hexa' );
+            ?>
+          </p>
+        </div>
 
       <?php
         function theme_social_menu() {
@@ -58,6 +64,7 @@
             </div>
           </form>
           <!-- //.select-lang -->
+
         </div>
       </div>
     </div>

@@ -37,5 +37,8 @@
 			'after_title' 		=> '</h2>'
 
 		));
+
+		//hexa custom widget fields
+		require_once('hexa-custom-widgets.php');
 	}
 	add_action('widgets_init', 'hexa_widgets');

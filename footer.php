@@ -24,10 +24,11 @@
                             <a class="navbar-brand pb-15 mb-20 d-block" href="index.html"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo/logo.png" alt="Logo"></a>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
                             <div class="icon-list">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
+
+                                <?php if (has_nav_menu('social')) : ?>
+                                  <?php theme_social_menu(); ?>
+                                <?php endif; ?>
+
                             </div>
                         </div>
                     </div>
@@ -40,6 +41,14 @@
                                 if(is_active_sidebar('footer-widget')){
                                     dynamic_sidebar('footer-widget');
                                 }
+                            ?>
+
+                            <?php
+                                $footer_popular = new WP_Query(array(
+                                    'posts_per_page' => 4,
+                                    'order_by' => 'comment_count',
+                                    'ignore_sticky_post' => 1
+                                ));
                             ?>
                         </div>
                     </div>

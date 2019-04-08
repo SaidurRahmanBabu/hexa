@@ -6,7 +6,7 @@
             <div class="row">
                 <!-- ====================== Main .blog-area ====================== -->
                 <main class="col-xl-8 col-lg-8 col-md-7 blog-details-area">
-                    <!-- ================= Full Post ================= -->
+                    <!-- ============ Full Post ============ -->
              <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                     <article class="card full-post border-0">
                         <mark class="catagory text-center">
@@ -50,9 +50,10 @@
                             </div>
                         </div>
                     </article>
-                    <!-- ================= /Full Post ================= -->
-                    <!-- =============== //Recent Blog =============== -->
-                    <!-- =============== Blog Pagination =============== -->
+                    <!-- =========== /Full Post ============= -->
+                    <!-- =========== //Recent Blog =========== -->
+
+                    <!-- ========= Blog Pagination =========== -->
                     <nav class="blog-pagination">
                         <ul class="justify-content-between pagination">
 
@@ -75,18 +76,50 @@
                         </ul>
                     </nav>
                     <!-- //Pagination -->
+
                     <!-- Author Box -->
                     <div class="author-box row">
                         <div class="col-xl-2  col-lg-3 text-center">
                             <?php
                                 echo get_avatar(get_the_author_meta('id'));
                             ?>
+                        <!-- author social links -->
+                  <?php
+                    $hexa_fb = get_field('facebook', 'user_'. get_the_author_meta('ID'));
+
+                    $hexa_twit = get_field('twitter', 'user_'. get_the_author_meta('ID'));
+
+                    $hexa_gplus = get_field('google_plus', 'user_'. get_the_author_meta('ID'));
+
+                    $hexa_pin = get_field('pinterest', 'user_'. get_the_author_meta('ID'));
+                  ?>
+
                             <div class="icon-list">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            <?php if($hexa_fb): ?>
+                                <a href="<?php echo esc_url($hexa_fb); ?>">
+                                  <i class="fa fa-facebook"></i>
+                                </a>
+                            <?php endif; ?>
+
+                              <?php if($hexa_twit): ?>
+                                <a href="<?php echo esc_url($hexa_twit); ?>">
+                                  <i class="fa fa-twitter"></i>
+                                </a>
+                              <?php endif; ?>
+
+                            <?php if($hexa_gplus): ?>
+                                <a href="<?php echo esc_url($hexa_gplus); ?>">
+                                  <i class="fa fa-google-plus"></i>
+                                </a>
+                            <?php endif; ?>
+
+                            <?php if($hexa_pin): ?>
+                                <a href="<?php echo esc_url($hexa_pin); ?>">
+                                  <i class="fa fa-pinterest"></i>
+                                </a>
+                            <?php endif; ?>
                             </div>
+
                         </div>
                         <div class="col-xl-10 col-lg-9">
                             <div class="card author-info border-0">
@@ -103,28 +136,6 @@
                     </div>
                     <!-- //Author Box -->
                     <!-- ================= Comment Area ================= -->
-                    <div class="comments-area">
-                        <div class="comments-title">
-                            <h5 class="h1">
-                                <?php _e('Comments', 'hexa') ?>
-                            </h5>
-                            <p class="disabled">There are no comment
-                            </p>
-                        </div>
-                        <div class="comments-from">
-                            <h2 class="widget-title">LEAVE A COMMENT</h2>
-                            <form action="#" method="post">
-                                <div class="form-group d-flex justify-content-between mb-20">
-                                    <input type="text" name="Name" class="form-control mr-30" id="comment-name" placeholder="Name *" required>
-                                    <input type="email" name="Email" class="form-control" id="comment-email" placeholder="Email *" required>
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="Message" class="form-control w-100" id="comment-textarea" placeholder="Message *" required></textarea>
-                                </div>
-                                <button class="submit" type="submit">COMMENT</button>
-                            </form>
-                        </div>
-                    </div><br><br>
 
                     <div class="comments-area">
                         <div class="comments-title">
